@@ -1,0 +1,302 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Produce : GlueCode Internal API, Powered by Gluecode Platform. Captures all the interesting ways you can use the Platform. (Documentation is work in Progress...)",
+    "version": "0.1",
+    "title": "Java1 Public API",
+    "termsOfService": "",
+    "contact": {
+      "email": "hrishi@gluecode.com"
+    },
+    "license": {
+      "name": "Gluecode",
+      "url": "http://www.gluecode.com"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/java1",
+  "tags": [
+    {
+      "name": "Person",
+      "description": "API for Person Class"
+    },
+    {
+      "name": "Document",
+      "description": "API for Document Class"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/people/{id}": {
+      "get": {
+        "tags": [
+          "Person"
+        ],
+        "summary": "Get Person for given Id",
+        "description": "Get Person for given Id",
+        "operationId": "getPersonById",
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "format": "String",
+                  "required": true
+                },
+                "id": {
+                  "type": "string",
+                  "format": "String",
+                  "required": true
+                },
+                "age": {
+                  "type": "integer",
+                  "format": "int",
+                  "required": true
+                }
+              },
+              "xml": {
+                "name": "Person"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request!",
+            "schema": null
+          },
+          "401": {
+            "description": "Unauthorized!",
+            "schema": null
+          },
+          "500": {
+            "description": "Internal Server Error!",
+            "schema": null
+          },
+          "403": {
+            "description": "Access to the specified resource has been forbidden!",
+            "schema": null
+          },
+          "404": {
+            "description": "Not Found!",
+            "schema": null
+          },
+          "503": {
+            "description": "Service Unavailable!",
+            "schema": null
+          },
+          "408": {
+            "description": "Request Timeout!",
+            "schema": null
+          }
+        },
+        "security": [
+          {
+            "UserAuthentication": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Person Id",
+            "required": true,
+            "schema": null,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/people/enlist": {
+      "get": {
+        "tags": [
+          "Person"
+        ],
+        "summary": "Get All Person Details",
+        "description": "Get All Person Details",
+        "operationId": "getAllPeople",
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "empty": {
+                  "type": "boolean",
+                  "format": "boolean",
+                  "required": true
+                }
+              },
+              "xml": {
+                "name": "List"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request!",
+            "schema": null
+          },
+          "401": {
+            "description": "Unauthorized!",
+            "schema": null
+          },
+          "500": {
+            "description": "Internal Server Error!",
+            "schema": null
+          },
+          "403": {
+            "description": "Access to the specified resource has been forbidden!",
+            "schema": null
+          },
+          "404": {
+            "description": "Not Found!",
+            "schema": null
+          },
+          "503": {
+            "description": "Service Unavailable!",
+            "schema": null
+          },
+          "408": {
+            "description": "Request Timeout!",
+            "schema": null
+          }
+        },
+        "security": [
+          {
+            "UserAuthentication": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": []
+      }
+    },
+    "/api/people/age/{age}": {
+      "get": {
+        "tags": [
+          "Person"
+        ],
+        "summary": "Get All Person of given age",
+        "description": "Get All Person of given age",
+        "operationId": "getPersonByAge",
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "empty": {
+                  "type": "boolean",
+                  "format": "boolean",
+                  "required": true
+                }
+              },
+              "xml": {
+                "name": "List"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request!",
+            "schema": null
+          },
+          "401": {
+            "description": "Unauthorized!",
+            "schema": null
+          },
+          "500": {
+            "description": "Internal Server Error!",
+            "schema": null
+          },
+          "403": {
+            "description": "Access to the specified resource has been forbidden!",
+            "schema": null
+          },
+          "404": {
+            "description": "Not Found!",
+            "schema": null
+          },
+          "503": {
+            "description": "Service Unavailable!",
+            "schema": null
+          },
+          "408": {
+            "description": "Request Timeout!",
+            "schema": null
+          }
+        },
+        "security": [
+          {
+            "UserAuthentication": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "age",
+            "description": "Person age",
+            "required": true,
+            "schema": null,
+            "type": "integer"
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "UserAuthentication": {
+      "type": "basic",
+      "scopes": {
+
+      }
+    }
+  },
+  "definitions": {
+    "List": {
+      "type": "object",
+      "properties": {
+        "empty": {
+          "type": "boolean",
+          "format": "boolean",
+          "required": true
+        }
+      },
+      "xml": {
+        "name": "List"
+      }
+    },
+    "Person": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "format": "String",
+          "required": true
+        },
+        "id": {
+          "type": "string",
+          "format": "String",
+          "required": true
+        },
+        "age": {
+          "type": "integer",
+          "format": "int",
+          "required": true
+        }
+      },
+      "xml": {
+        "name": "Person"
+      }
+    }
+  }
+}
